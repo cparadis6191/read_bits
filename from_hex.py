@@ -25,7 +25,13 @@ if __name__ == '__main__':
     print(' '.join(out_index_list))
 
     # Char
-    out_char_list = [chr(byte).ljust(8) for byte in byte_list]
+    out_char_list = []
+
+    for byte in byte_list:
+        char = chr(byte)
+        # Non-printable characters are replace with a Unicode replacement
+        # character.
+        out_char_list.append((char if char.isprintable() else u'\ufffd').ljust(8))
 
     print(' '.join(out_char_list))
 
