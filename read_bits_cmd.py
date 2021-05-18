@@ -21,6 +21,9 @@ if __name__ == '__main__':
 
     parsed_args = arg_parser.parse_args()
 
+    if parsed_args.bit_count <= 0:
+        raise ValueError
+
     hex_string = ''.join(sys.stdin.readlines()).rstrip().replace(
             '\n', '').replace(' ', '')
 
